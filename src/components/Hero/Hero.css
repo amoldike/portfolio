@@ -1,0 +1,97 @@
+.hero-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(-45deg, #1e3a8a, #2563eb, #3b82f6, #60a5fa);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  padding-top: 80px;
+  color: white;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hero-heading {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  z-index: 1;
+}
+
+.hero-subheading {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  z-index: 1;
+}
+
+.hero-buttons button {
+  background-color: #facc15;
+  color: #1e293b;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+  z-index: 1;
+}
+
+.hero-buttons button:hover {
+  transform: scale(1.1);
+  background-color: #f59e0b;
+}
+
+.hero-social {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 20px;
+  z-index: 1;
+}
+
+.social-icon {
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.social-icon:hover {
+  transform: translateY(-5px);
+}
+
+/* Floating dots */
+.dots-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  top: calc(100% * var(--random-top, 0));
+  left: calc(100% * var(--random-left, 0));
+}

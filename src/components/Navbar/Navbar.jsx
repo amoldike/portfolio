@@ -1,46 +1,20 @@
-import React, { useState } from 'react';
+import React from "react";
 import './Navbar.css';
 
-const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const navLinks = [
-        { title: "Home", href: "#home" },
-        { title: "About", href: "#about" },
-        { title: "Projects", href: "#projects" },
-        { title: "Skills", href: "#skills" },
-        { title: "Contact", href: "#contact" }
-    ];
-
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
-
+function Navbar() {
     return (
         <nav className="navbar">
-            <div className="nav-logo">
-                <a href="#home">Amol Dike</a>
+            <div className="navbar-container">
+                <h1 className="logo">Amol Dike</h1>
+                <ul className="nav-links">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </div>
-
-            {/* Mobile menu button */}
-            <button className={`mobile-menu-btn ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            {/* Navigation links */}
-            <ul className={`nav-links ${isOpen ? 'active' : ''}`}>
-                {navLinks.map((link, index) => (
-                    <li key={index}>
-                        <a href={link.href} onClick={() => setIsOpen(false)}>
-                            {link.title}
-                        </a>
-                    </li>
-                ))}
-            </ul>
         </nav>
     );
-};
+}
 
 export default Navbar;
