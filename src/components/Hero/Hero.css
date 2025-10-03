@@ -1,97 +1,144 @@
+:root {
+  --primary-bg: #ffcc40;
+  --card-bg: #f7f7f7;
+  --accent: #ffe082;
+  --text-main: #222;
+  --highlight: #ffbe0b;
+}
+
 .hero-section {
   position: relative;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  text-align: center;
-  background: linear-gradient(-45deg, #1e3a8a, #2563eb, #3b82f6, #60a5fa);
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
-  padding-top: 80px;
-  color: white;
+  justify-content: center;
+  background: var(--primary-bg);
+  overflow-x: hidden;
 }
 
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.hero-heading {
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  z-index: 1;
-}
-
-.hero-subheading {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  z-index: 1;
-}
-
-.hero-buttons button {
-  background-color: #facc15;
-  color: #1e293b;
-  border: none;
-  padding: 0.8rem 2rem;
-  font-size: 1.1rem;
-  border-radius: 8px;
-  margin: 0 10px;
-  cursor: pointer;
-  transition: transform 0.3s, background-color 0.3s;
-  z-index: 1;
-}
-
-.hero-buttons button:hover {
-  transform: scale(1.1);
-  background-color: #f59e0b;
-}
-
-.hero-social {
-  margin-top: 1.5rem;
-  display: flex;
-  gap: 20px;
-  z-index: 1;
-}
-
-.social-icon {
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
-
-.social-icon:hover {
-  transform: translateY(-5px);
-}
-
-/* Floating dots */
-.dots-container {
+.hero-bg {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 200%;
-  pointer-events: none;
+  inset: 0;
+  background: var(--primary-bg);
   z-index: 0;
 }
 
-.dot {
+.hero-card {
+  position: relative;
+  background: var(--card-bg);
+  box-shadow: 0 12px 32px rgba(64, 64, 64, 0.18);
+  border-radius: 22px;
+  padding: 3.5rem 3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
+  z-index: 1;
+  top: 2rem;
+  min-width: 350px;
+  max-width: 1028px; /* 4rem (64px) bigger than 964px */
+  margin: 40px auto;
+}
+
+.hero-content {
+  flex: 1;
+}
+
+.hero-role-container {
+  min-height: 2rem;
+  position: relative;
+}
+.hero-role {
+  font-size: 1rem;
+  color: #c29100;
+  letter-spacing: 2px;
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
   position: absolute;
-  width: 8px;
-  height: 8px;
-  background-color: rgba(255, 255, 255, 0.6);
-  border-radius: 50%;
-  top: calc(100% * var(--random-top, 0));
-  left: calc(100% * var(--random-left, 0));
+  width: 100%;
+  left: 0;
+}
+
+.hero-title {
+  color: var(--text-main);
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 0.6rem;
+}
+
+.hero-title .highlight {
+  color: var(--highlight);
+}
+
+.hero-desc {
+  color: #575757;
+  font-size: 1.07rem;
+  margin-bottom: 1.4rem;
+  max-width: 410px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  background: transparent;
+  border: 2px solid var(--highlight);
+  color: var(--text-main);
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 0.7rem;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.18s, color 0.18s, border 0.18s;
+}
+
+.btn.primary {
+  background: var(--highlight);
+  color: #fff;
+  border: none;
+}
+
+.btn:hover,
+.btn.primary:hover {
+  background: #fffbe5;
+  color: #c29100;
+  border-color: #ffcc40;
+}
+
+.hero-image-wrap {
+  position: relative;
+  width: 250px;
+  min-width: 140px;
+  margin-left: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 24px 24px 80px 80px/25px 25px 110px 110px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 8px 32px rgba(85, 85, 85, 0.19);
+}
+
+@media (max-width: 950px) {
+  .hero-card {
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    max-width: 97vw;
+  }
+  .hero-image-wrap {
+    margin-left: 0;
+    margin-top: 16px;
+  }
 }
